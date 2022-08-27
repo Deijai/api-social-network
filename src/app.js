@@ -5,6 +5,7 @@ const cors = require('cors');
 const app = express();
 
 //load routes
+const userRoutes = require('./routes/userRoutes')
 
 //middlewares
 app.use(express.urlencoded({extended:false}));
@@ -17,10 +18,7 @@ app.use(cors());
 
 
 //routes
-app.get('/api', (req, res) => {
-    res.json({ok: true})
-})
-
+app.use('/api/user', userRoutes);
 
 //exports
 module.exports = app;
